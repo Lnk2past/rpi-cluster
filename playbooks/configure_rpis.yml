@@ -1,0 +1,17 @@
+---
+- name: Configure RPIs
+  hosts: rpis
+  become: true
+  become_user: lnk2past
+
+  tasks:
+  - name: Install Python 3.12.2
+    ansible.builtin.script: /home/lnk2past/dev/rpi/scripts/install_python_3.12.2.sh
+
+  - name: Install Micromamba
+    ansible.builtin.script: /home/lnk2past/dev/rpi/scripts/install_micromamba.sh
+
+  - name: Install Environment
+    ansible.builtin.script: /home/lnk2past/dev/rpi/scripts/install_env.sh
+    environment:
+      PATH: ~/.local/bin:{{ ansible_env.PATH }}

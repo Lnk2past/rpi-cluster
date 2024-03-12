@@ -1,0 +1,3 @@
+rpis:
+  hosts:
+    raspberrypi[1:4]:
