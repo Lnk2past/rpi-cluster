@@ -11,12 +11,12 @@ def add(x, y):
 
 
 cluster = SSHCluster(
-    ["BEEF.local", "raspberrypi1", "raspberrypi2", "raspberrypi3", "raspberrypi4"],
+    ["raspberrypi0", "raspberrypi1", "raspberrypi2", "raspberrypi3", "raspberrypi4"],
     remote_python='/home/lnk2past/micromamba/envs/dask/bin/python'
 )
 client = Client(cluster)
 
-data = [1, 2, 3, 4, 5]
+data = list(range(1000000))
 
 output = []
 for x in data:

@@ -2,7 +2,21 @@
 if [ true ]; then
   # get a current python3
   
-  sudo apt-get install wget build-essential libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev liblzma-dev -y
+  sudo apt-get install \
+    wget \
+    build-essential \
+    libreadline-gplv2-dev \
+    libncursesw5-dev \
+    libssl-dev \
+    libsqlite3-dev \
+    tk-dev \
+    libgdbm-dev \
+    libc6-dev \
+    libbz2-dev \
+    libffi-dev \
+    zlib1g-dev \
+    liblzma-dev -y
+  
   VERSION=3.12.2
   VERSION_SHORT=3.12
   
@@ -16,7 +30,7 @@ if [ true ]; then
   tar xzf Python-${VERSION}.tgz
   cd Python-${VERSION}
   if [ ! -f python ]; then
-    ./configure
+    ./configure --enable-optimizations --with-lto
   fi
   echo "### make altinstall"
   sudo make altinstall

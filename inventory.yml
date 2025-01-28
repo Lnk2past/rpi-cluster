@@ -1,3 +1,12 @@
-rpis:
+rpi4:
+  hosts:
+    raspberrypi0:
+
+rpi3b:
   hosts:
     raspberrypi[1:4]:
+
+rpis:
+  children:
+    rpi4:
+    rpi3b:
